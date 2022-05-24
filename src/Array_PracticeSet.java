@@ -61,17 +61,63 @@ public class Array_PracticeSet {
         // }
 
         // Question 5:-
-        int[] arr = { 1, 2, 3, 1, 2, 3 };
-        for (int i = arr.length - 1; i >= 0; i--) {
-            System.out.println(arr[i]);
-        }
-
-        // int[] arr = { 5, 7, 2, 8, 4 };
-
-        // for (int i = 0; i < (arr.length - 1) / 2; i++) {
-        // // System.out.println(arr[i]);
-        // Compare(arr[i], arr[i + 1]);
+        // 1st method:
+        // int[] arr = { 1, 2, 3, 1, 2, 3 };
+        // for (int i = arr.length - 1; i >= 0; i--) {
+        // System.out.println(arr[i]);
         // }
+
+        // Other method
+        // int[] num_array = { 23, 45, 63, 32, 98, 24, 69 };
+        // int n = (int) (Math.floor(Double.valueOf(l / 2)));
+        // int l = num_array.length;
+        // int n = Math.floorDiv(l, 2);
+
+        // int temp;
+        // for (int i = 0; i < n; i++) {
+        // temp = num_array[i];
+        // num_array[i] = num_array[l - i - 1];
+        // num_array[l - i - 1] = temp;
+        // }
+        // for (int j : num_array) {
+        // System.out.print(j + " ");
+        // }
+
+        // Question 6:
+
+        // int[] num_array = { 23, 45, 63, 32, 98, 24, 69 };
+        // int[] op_array = delete(num_array, 5);
+        // for (int i = 0; i < op_array.length; i++) {
+        // System.out.println(op_array[i]);
+        // }
+
+        int n;
+        System.out.print("Enter the number of elements: ");
+        n = input.nextInt();
+        if (n == 0) {
+            System.out.println("\n\nTHERE CAN'T BE 0 ELEMENTS IN ARRAY!! Exiting the program... \n");
+            System.exit(0);
+        }
+        System.out.println();
+        int[] arr = new int[n - 1];
+        for (int i = 0; i < n - 1; i++) {
+            System.out.print("\nEnter element " + (i + 1) + ": ");
+            arr[i] = input.nextInt();
+        }
+        if (n - 1 == 0) {
+            // only one element
+            System.out.println("\nMaximum number in array: " + arr[0]);
+        } else if (n % 2 == 0) {
+            // even elements
+            for (int i = 0; i < (n - 1) / 2; i += 2) {
+                Math.max(arr[i], arr[])
+            }
+        } else {
+            // odd elements
+            for (int i = 0; i < Math.floorDiv(n - 1, 2); i++) {
+
+            }
+        }
 
         input.close();
     }
@@ -85,4 +131,15 @@ public class Array_PracticeSet {
     // return n1;
     // }
     // }
+
+    static int[] delete(int[] arr, int index) {
+        int[] new_array = new int[arr.length - 1];
+        for (int i = 0; i < index; i++) {
+            new_array[i] = arr[i];
+        }
+        for (int i = index + 1; i < arr.length; i++) {
+            new_array[i - 1] = arr[i];
+        }
+        return new_array;
+    }
 }
