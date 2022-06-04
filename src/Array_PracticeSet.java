@@ -83,40 +83,70 @@ public class Array_PracticeSet {
         // System.out.print(j + " ");
         // }
 
-        // Question 6:
+        // Question 6,7:
 
-        // int[] num_array = { 23, 45, 63, 32, 98, 24, 69 };
-        // int[] op_array = delete(num_array, 5);
-        // for (int i = 0; i < op_array.length; i++) {
-        // System.out.println(op_array[i]);
+        // min, max in array:
+
+        // int n, max = 0;
+        // System.out.print("Enter the number of elements: ");
+        // n = input.nextInt();
+        // if (n == 0) {
+        // System.out.println("\n\nTHERE CAN'T BE 0 ELEMENTS IN ARRAY!! Exiting the
+        // program... \n");
+        // System.exit(0);
         // }
 
-        int n;
+        // int[] arr = new int[n];
+        // for (int i = 0; i < n; i++) {
+        // System.out.print("\nEnter element " + (i + 1) + ": ");
+        // arr[i] = input.nextInt();
+        // }
+        // max = arr[0];
+        // for (int i = 1; i < n; i++) {
+        // if (arr[i] > max) {
+        // max = arr[i];
+        // }
+        // }
+
+        // System.out.println("The maximum number in the array is: " + max);
+
+        // Question 8
+
+        int n, max, min;
+        boolean ascending = true, descending = true;
         System.out.print("Enter the number of elements: ");
         n = input.nextInt();
         if (n == 0) {
             System.out.println("\n\nTHERE CAN'T BE 0 ELEMENTS IN ARRAY!! Exiting the program... \n");
             System.exit(0);
         }
-        System.out.println();
-        int[] arr = new int[n - 1];
-        for (int i = 0; i < n - 1; i++) {
+
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
             System.out.print("\nEnter element " + (i + 1) + ": ");
             arr[i] = input.nextInt();
         }
-        if (n - 1 == 0) {
-            // only one element
-            System.out.println("\nMaximum number in array: " + arr[0]);
-        } else if (n % 2 == 0) {
-            // even elements
-            for (int i = 0; i < (n - 1) / 2; i += 2) {
-                Math.max(arr[i], arr[])
+        max = arr[0];
+        min = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                descending = false;
+                break;
             }
-        } else {
-            // odd elements
-            for (int i = 0; i < Math.floorDiv(n - 1, 2); i++) {
+        }
+        if (descending == false) {
+            for (int i = 1; i < n; i++) {
+                if (arr[i] < min) {
+                    ascending = false;
+                    break;
+                }
+            }
+        }
 
-            }
+        if (descending == true || ascending == true) {
+            System.out.println("\n\n\nArray is Sorted!");
+        } else {
+            System.out.println("\n\n\nArray is NOT Sorted!!");
         }
 
         input.close();
