@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import pkg.pkg1.pkg2.Integer;
+
 public class Array_PracticeSet {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
