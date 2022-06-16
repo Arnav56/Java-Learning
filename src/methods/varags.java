@@ -16,6 +16,7 @@ public class varags {
     }
 
     static void sum(int x, int... arr) {
+        // arr is available as int[] arr
         int sum = x;
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
