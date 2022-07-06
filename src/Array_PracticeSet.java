@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import pkg.pkg1.pkg2.Integer;
+
 public class Array_PracticeSet {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -61,17 +63,93 @@ public class Array_PracticeSet {
         // }
 
         // Question 5:-
-        int[] arr = { 1, 2, 3, 1, 2, 3 };
-        for (int i = arr.length - 1; i >= 0; i--) {
-            System.out.println(arr[i]);
+        // 1st method:
+        // int[] arr = { 1, 2, 3, 1, 2, 3 };
+        // for (int i = arr.length - 1; i >= 0; i--) {
+        // System.out.println(arr[i]);
+        // }
+
+        // Other method
+        // int[] num_array = { 23, 45, 63, 32, 98, 24, 69 };
+        // int n = (int) (Math.floor(Double.valueOf(l / 2)));
+        // int l = num_array.length;
+        // int n = Math.floorDiv(l, 2);
+
+        // int temp;
+        // for (int i = 0; i < n; i++) {
+        // temp = num_array[i];
+        // num_array[i] = num_array[l - i - 1];
+        // num_array[l - i - 1] = temp;
+        // }
+        // for (int j : num_array) {
+        // System.out.print(j + " ");
+        // }
+
+        // Question 6,7:
+
+        // min, max in array:
+
+        // int n, max = 0;
+        // System.out.print("Enter the number of elements: ");
+        // n = input.nextInt();
+        // if (n == 0) {
+        // System.out.println("\n\nTHERE CAN'T BE 0 ELEMENTS IN ARRAY!! Exiting the
+        // program... \n");
+        // System.exit(0);
+        // }
+
+        // int[] arr = new int[n];
+        // for (int i = 0; i < n; i++) {
+        // System.out.print("\nEnter element " + (i + 1) + ": ");
+        // arr[i] = input.nextInt();
+        // }
+        // max = arr[0];
+        // for (int i = 1; i < n; i++) {
+        // if (arr[i] > max) {
+        // max = arr[i];
+        // }
+        // }
+
+        // System.out.println("The maximum number in the array is: " + max);
+
+        // Question 8
+
+        int n, max, min;
+        boolean ascending = true, descending = true;
+        System.out.print("Enter the number of elements: ");
+        n = input.nextInt();
+        if (n == 0) {
+            System.out.println("\n\nTHERE CAN'T BE 0 ELEMENTS IN ARRAY!! Exiting the program... \n");
+            System.exit(0);
         }
 
-        // int[] arr = { 5, 7, 2, 8, 4 };
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("\nEnter element " + (i + 1) + ": ");
+            arr[i] = input.nextInt();
+        }
+        max = arr[0];
+        min = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                descending = false;
+                break;
+            }
+        }
+        if (descending == false) {
+            for (int i = 1; i < n; i++) {
+                if (arr[i] < min) {
+                    ascending = false;
+                    break;
+                }
+            }
+        }
 
-        // for (int i = 0; i < (arr.length - 1) / 2; i++) {
-        // // System.out.println(arr[i]);
-        // Compare(arr[i], arr[i + 1]);
-        // }
+        if (descending == true || ascending == true) {
+            System.out.println("\n\n\nArray is Sorted!");
+        } else {
+            System.out.println("\n\n\nArray is NOT Sorted!!");
+        }
 
         input.close();
     }
@@ -85,4 +163,15 @@ public class Array_PracticeSet {
     // return n1;
     // }
     // }
+
+    static int[] delete(int[] arr, int index) {
+        int[] new_array = new int[arr.length - 1];
+        for (int i = 0; i < index; i++) {
+            new_array[i] = arr[i];
+        }
+        for (int i = index + 1; i < arr.length; i++) {
+            new_array[i - 1] = arr[i];
+        }
+        return new_array;
+    }
 }
